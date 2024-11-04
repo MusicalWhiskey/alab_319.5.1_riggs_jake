@@ -11,7 +11,7 @@ import grades_agg from "./routes/grades_agg.js";
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the API.");
+  res.send("You are here.");
 });
 
 app.use("/grades", grades);

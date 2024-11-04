@@ -7,6 +7,7 @@ const app = express();
 import grades from "./routes/grades.js";
 import grades_agg from "./routes/grades_agg.js";
 
+
 app.use(express.json());
 
 app.get("/", (req, res) => {

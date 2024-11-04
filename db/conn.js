@@ -1,14 +1,20 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.ATLAS_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+  }
+  catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+};
 
 const db = mongoose.connection;
 
 db.on('error', (err) => {
   console.error(err);
+  console.log(`Can't connect to Mongoose`);
 });
 
 db.once('open', () => {
